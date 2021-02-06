@@ -1,11 +1,6 @@
 def code
 node(){
-        stage('setup'){
-            currentBuild.displayName = "#$(BUILD_ID} | ${SEQUENCE}"
-            checkout([$class: 'GitSCM', branches: [[name: 'master']],
-            userRemoteConfigs: [[url: "https://github.com/Akshada-Pawar/Demo_Groovy_App.git"]]
-            ])
-        }
+        
         stage('checkout'){
             deleteDir()
             checkout scm
