@@ -7,7 +7,7 @@ node(){
         }
         stage('build'){
                 echo "Build Successful"
-                code = build 'pip install -r requirements.txt'
+                //code = build 'pip install -r requirements.txt'
         }
         stage('test'){
             
