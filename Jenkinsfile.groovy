@@ -7,7 +7,7 @@ node{
         }
         stage('build'){
                 
-                sh 'python -m py_compile src/app.py'
+                //sh 'python -m py_compile src/app.py'
                 stash(name: 'compiled-results', includes: 'src/*.py*')
                 echo "Build Successful"
         }
