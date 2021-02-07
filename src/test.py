@@ -1,5 +1,5 @@
 import unittest
-import xmlrunner
+#import xmlrunner
 import app
 
 class TestHello(unittest.TestCase):
@@ -23,13 +23,13 @@ class TestHello(unittest.TestCase):
     
     def test_hello_name(self):
         name = 'Akshada'
-        rv = self.app.get(f'/hello/{name}')
+        rv = self.app.get(f'/hello/"{name}"')
 
         self.assertEqual(rv.status, '200 OK')
         
         self.assertIn(bytearray(f"{name}", 'utf-8'), rv.data)
 
 if __name__ =='__main__':
-    runner = xmlrunner.XMLTestRunner(output='test-reports')
-    unittest.main(testRunner=runner)
+   # runner = xmlrunner.XMLTestRunner(output='test-reports')
+    #unittest.main(testRunner=runner)
     unittest.main()
