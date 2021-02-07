@@ -6,15 +6,16 @@ node{
             checkout scm
         }
         stage('build'){
-                
-                bat 'python -m py_compile src/app.py'
+                echo "Building..."
+                //sh 'python -m py_compile src/app.py'
                 stash(name: 'compiled-results', includes: 'src/*.py*')
                 echo "Build Successful"
         }
         stage('test'){
+            echo "Testing..."
             def testError = null
             try{
-                bat ''' python test.py '''
+                sh ''' py.test sources/test.py '''
             }
             catch(err){
                 testError = err
@@ -27,5 +28,6 @@ node{
                 }
 
             }
+            echo "Test Successful..."
         }
 }
