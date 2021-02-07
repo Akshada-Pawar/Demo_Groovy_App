@@ -7,14 +7,14 @@ node{
         }
         stage('build'){
                 
-                //sh 'python -m py_compile src/app.py'
+                bat 'python -m py_compile src/app.py'
                 stash(name: 'compiled-results', includes: 'src/*.py*')
                 echo "Build Successful"
         }
         stage('test'){
             def testError = null
             try{
-                sh ''' python test.py '''
+                bat ''' python test.py '''
             }
             catch(err){
                 testError = err
