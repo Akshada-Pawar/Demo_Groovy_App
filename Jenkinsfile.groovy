@@ -20,20 +20,25 @@ node{
             def testError = null
             try{
                 docker.image('python:3.5.1').inside{
-                sh ' python test.py '
+                //sh ' python test.py '
+                sh 'py.test --junit-xml test-reports/results.xml src/test.py'
             }
             }
             catch(err){
                 testError = err
                 currentBuild.result = 'FAILURE'
             }
-            finally{
-                junit 'test-reports/*.xml'
-                if(testError){
-                    throw testError
-                }
-
+        stage('reports generation'){
+            docker {
+                    image 'qnib/pytest' 
             }
+            post {
+                always {
+                    junit 'test-reports/results.xml' 
+                }
+            }
+        }
+            
             echo "Test Successful"
         }
 }
