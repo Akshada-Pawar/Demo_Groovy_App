@@ -1,4 +1,4 @@
-#!/usr/bin/env groovy
+#!/usr/bin/env python
 node{
         
         stage('Get Latest Code'){
