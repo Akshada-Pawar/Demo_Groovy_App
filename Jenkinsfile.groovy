@@ -6,7 +6,7 @@ node{
             checkout scm
         }
         stage('build'){
-                bat '''source bin/activate
+                sh '''source bin/activate
                 pip install -r requirements.txt
                 deactivate
                 '''
@@ -15,7 +15,7 @@ node{
         stage('test'){
             def testError = null
             try{
-                bat ''' python test.py '''
+                sh ''' python test.py '''
             }
             catch(err){
                 testError = err
