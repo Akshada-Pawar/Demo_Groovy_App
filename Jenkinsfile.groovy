@@ -20,19 +20,12 @@ node{
             def testError = null
             try{
                 docker.image('python:3.5.1').inside{
-                sh ' python src/test.py '
+                sh ' python test.py '
             }
             }
             catch(err){
                 testError = err
                 currentBuild.result = 'FAILURE'
-            }
-            finally{
-                junit 'test-reports/*.xml'
-                if(testError){
-                    throw testError
-                }
-
             }
             echo "Test Successful"
         }
