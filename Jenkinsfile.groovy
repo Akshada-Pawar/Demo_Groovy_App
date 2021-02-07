@@ -6,9 +6,9 @@ node{
             checkout scm
         }
         stage('build'){
-                sh '''source bin/activate
+                sh '''
                 pip install -r requirements.txt
-                deactivate
+                
                 '''
                 echo "Build Successful"
         }
