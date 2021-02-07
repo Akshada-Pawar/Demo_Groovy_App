@@ -23,7 +23,7 @@ class TestHello(unittest.TestCase):
     
     def test_hello_name(self):
         name = 'Akshada'
-        rv = self.app.get(f'/hello/"{name}"')
+        rv = self.app.get(f"/hello/{name}")
 
         self.assertEqual(rv.status, '200 OK')
         
