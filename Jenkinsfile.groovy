@@ -7,7 +7,7 @@ node{
         }
         stage('build'){
                 echo "Building..."
-                //sh 'python -m py_compile src/app.py'
+                sh 'python -m py_compile src/app.py'
                 stash(name: 'compiled-results', includes: 'src/*.py*')
                 echo "Build Successful"
         }
@@ -15,7 +15,7 @@ node{
             echo "Testing..."
             def testError = null
             try{
-                sh ''' py.test sources/test.py '''
+                sh ''' python test.py '''
             }
             catch(err){
                 testError = err
@@ -28,6 +28,6 @@ node{
                 }
 
             }
-            echo "Test Successful..."
+            echo "Test Successful"
         }
 }
