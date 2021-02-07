@@ -6,10 +6,9 @@ node{
             checkout scm
         }
         stage('build'){
-                sh '''
-                pip install -r requirements.txt
                 
-                '''
+                sh 'python -m py_compile src/app.py'
+                stash(name: 'compiled-results', includes: 'src/*.py*')
                 echo "Build Successful"
         }
         stage('test'){
