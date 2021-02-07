@@ -19,7 +19,9 @@ node{
             echo "Testing..."
             def testError = null
             try{
+                docker.image('python:3.5.1').inside{
                 sh ' python test.py '
+            }
             }
             catch(err){
                 testError = err
