@@ -1,4 +1,4 @@
-#!groovy
+#!/usr/bin/env groovy
 node{
         
         stage('Get Latest Code'){
@@ -28,17 +28,5 @@ node{
                 }
 
             }
-        stage('Create Artifact'){
-            //code = load 'example.Groovy'
         }
-node{
-    stage('Deploy Artifact'){
-        
-    }
-}
-node{
-    stage('Run End-to-End Tests'){
-
-    }
-}
 }
