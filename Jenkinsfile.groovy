@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-node('docker'){
+node{
         
         stage('Get Latest Code'){
             deleteDir()
