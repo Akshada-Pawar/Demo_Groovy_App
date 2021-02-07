@@ -9,8 +9,7 @@ node{
                 echo "Building..."
                 docker.image('python:3.5.1').inside{
                     sh 'python --version'
-                   // sh 'pip install --upgrade pip'
-                    sh 'pip install flask'
+                    sh 'pip install -r requirements.txt'
                     sh 'python -m py_compile src/app.py'
                 stash(name: 'compiled-results', includes: 'src/*.py*')
                 }
