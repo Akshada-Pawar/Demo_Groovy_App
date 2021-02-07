@@ -28,16 +28,11 @@ node{
                 testError = err
                 currentBuild.result = 'FAILURE'
             }
-        stage('reports generation'){
-            docker {
-                    image 'qnib/pytest' 
-            }
             post {
                 always {
                     junit 'test-reports/results.xml' 
                 }
             }
-        }
             
             echo "Test Successful"
         }
