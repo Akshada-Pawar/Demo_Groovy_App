@@ -19,10 +19,10 @@ node{
             echo "Testing..."
             def testError = null
             try{
-                docker.image('python:3.5.1').inside{
+                //docker.image('python:3.5.1').inside{
                 sh ' python test.py '
                 //sh 'py.test --junit-xml test-reports/results.xml src/test.py'
-            }
+            //}
             }
             catch(err){
                 testError = err
