@@ -31,7 +31,6 @@ node{
         stage('Create Artifact'){
             //code = load 'example.Groovy'
         }
-}
 node{
     stage('Deploy Artifact'){
         
@@ -41,4 +40,5 @@ node{
     stage('Run End-to-End Tests'){
 
     }
+}
 }
